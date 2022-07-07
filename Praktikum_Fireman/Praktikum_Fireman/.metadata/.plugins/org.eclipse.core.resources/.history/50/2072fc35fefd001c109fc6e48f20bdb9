@@ -1,0 +1,23 @@
+package fireman.csi.faces.viewmodel;
+
+import java.util.List;
+
+
+public class GenericDataTableVm {
+    private List<Cable> mCables;
+
+    private CableService mService;
+
+    public void init() {
+        mCables = mService.getCables();
+    }
+
+    public List<Cable> getCables() {
+        return mCables;
+    }
+
+    public void setService(CableService service) {
+        mService = service;
+    }
+}
+

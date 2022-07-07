@@ -1,0 +1,36 @@
+1656936213838	Delete element
+1656936268169	Copy file
+1656936280238	Rename resource 'card.xhtml'
+1656937641969	Delete element
+1656937659822	Rename resource 'mypage.xhtml'
+1656937714484	Rename resource 'spinner.xhtml'
+1656944328787	Rename package 'Fireman'
+1656944712648	Delete element
+1656946046833	Delete element
+1656946173643	Delete element
+1656946420183	Delete element
+1656949329793	Delete element
+1656949922356	Delete element
+1656951237989	Delete element
+1656959435033	Delete element
+1656959884209	Rename type 'MySpinner'
+1656961922338	Rename package 'org.primefaces.showcase.fireman'
+1656962166690	Rename type 'MySpinnerVm'
+1657026547522	Move 'toggleSwitch.xhtml' to 'tags'
+1657026916002	Move 'toggleSwitch.xhtml' to 'common'
+1657027207232	Move 'components' to 'composite'
+1657099867103	Rename resource 'mySpinner.xhtml'
+1657110316277	Rename resource 'labledTextInput'
+1657110397794	Delete element
+1657110473961	Rename resource 'labledTextInputVm'
+1657110501625	Delete element
+1657117665583	Delete element
+1657199901150	Rename resource 'genericDataTable.xhtml'
+1657200603418	Rename compilation unit 'GenericDataTable.java'
+1657200616476	Rename compilation unit 'Customer.java'
+1657201325164	Delete element
+1657201329881	Delete element
+1657201909614	Rename compilation unit 'GenericDataTable.java'
+1657202881098	Rename type 'GenericDataTableVm'
+1657203095410	Rename type 'CableService'
+1657204338547	Rename field 'mManufacture'

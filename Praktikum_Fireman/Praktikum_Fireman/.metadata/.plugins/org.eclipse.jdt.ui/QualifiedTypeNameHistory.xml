@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="javax.faces.bean.RequestScoped"/>
+    <fullyQualifiedTypeName name="javax.enterprise.context.RequestScoped"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.ThreadLocalRandom"/>
+    <fullyQualifiedTypeName name="org.primefaces.showcase.domain.Representative"/>
+    <fullyQualifiedTypeName name="org.primefaces.showcase.domain.Country"/>
+    <fullyQualifiedTypeName name="org.primefaces.showcase.domain.CustomerStatus"/>
+    <fullyQualifiedTypeName name="org.primefaces.showcase.domain.Customer"/>
+    <fullyQualifiedTypeName name="javax.enterprise.context.ApplicationScoped"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.LinkedList"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="fireman.csi.faces.viewmodel.Cable"/>
+    <fullyQualifiedTypeName name="javax.inject.Named"/>
+    <fullyQualifiedTypeName name="javax.faces.bean.ViewScoped"/>
+    <fullyQualifiedTypeName name="javax.faces.view.ViewScoped"/>
+    <fullyQualifiedTypeName name="javax.inject.Inject"/>
+    <fullyQualifiedTypeName name="javax.annotation.PostConstruct"/>
+    <fullyQualifiedTypeName name="java.io.Serializable"/>
+</qualifiedTypeNameHistroy>

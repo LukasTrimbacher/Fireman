@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:swaf="http://java.sun.com/jsf/composite/composite/components/common"
+>
+	
+	<cc:interface>
+		<cc:attribute name="label" />
+		<cc:attribute name="timeEnabled" />
+		<cc:attribute name="dateEnabled" />                             <!-- the user presented label, presented on the 'on' side -->
+		<cc:attribute name="offLabel" />                          <!-- the user presented label shown at the 'off' side of the switch -->
+		<cc:attribute name="onAtLeft" default="true" />           <!-- true (default) to render the 'on' state at the left end, false to render the 'off' state on the left end -->
+		<cc:attribute name="value" />                             <!-- the binding for the value of the switch -->
+		<cc:attribute name="update" />                            <!-- the IDs (expressions) of the element to update upon changes -->
+		<cc:attribute name="disabled" default="false"/>           <!-- true if the widget shall not accept input, false (default) otherwise -->
+		<cc:attribute name="style" />                             <!-- the CSS style for the outer widget -->
+		<cc:attribute name="styleClass" />                        <!-- the CSS style class for the outer widget -->		            <!-- the listener that is notified about state changes -->
+	</cc:interface>
+	
+	<cc:implementation>
+		<h:form>
+            <p:dialog widgetVar="dlg1" header="Title" style="align-items: center;" modal="true" height="auto" width="auto" >
+            	<p:button value="Close" styleClass="ui-button-danger"/> 
+                <swaf:labledSingleSelection  label="Single Selection"/>
+                <swaf:labledTextInput  label="Labled Text Input"/>
+                <swaf:labledDateTimePicker  label="Labled DateTime Picker"/>
+                <swaf:labledSpinner  label="Labled Spinner"/>
+            	<swaf:labledSwitch  label="Labled Switch"/>
+            </p:dialog> 
+		</h:form>
+			<h:form id="form">
+
+    <p:messages id="messages"/>
+
+    <div class="card">
+        <h5>Basic</h5>
+        <p:dataTable id="tableStateDT" var="customer" value="#{dtMultiViewStateView.customers}"
+                     widgetVar="customersTable" multiViewState="true" rows="10" paginator="true"
+                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                     rowsPerPageTemplate="5,10,15" selectionMode="single"
+                     selection="#{dtMultiViewStateView.selectedCustomer}" rowKey="#{customer.id}"
+                     emptyMessage="No customers found with given criteria"
+                     filteredValue="#{dtMultiViewStateView.filteredCustomers}">
+
+            <f:facet name="header">
+                <p:outputPanel>
+                    <h:outputText value="Search all fields:"/>
+                    <p:inputText id="globalFilter" onkeyup="PF('customersTable').filter()" style="width:150px"
+                                 placeholder="Enter keyword"/>
+                </p:outputPanel>
+            </f:facet>
+
+            <p:ajax event="rowSelect" update=":form:customerDetail" oncomplete="PF('customerDialog').show()"/>
+
+            <p:column headerText="Name" filterBy="#{customer.name}" sortBy="#{customer.name}"
+                      filterMatchMode="contains">
+                <h:outputText value="#{customer.name}"/>
+            </p:column>
+
+            <p:column headerText="Country" filterBy="#{customer.country.name}" sortBy="#{customer.country.name}"
+                      filterMatchMode="startsWith">
+                <span class="flag flag-#{customer.country.code}" style="width: 30px; height: 20px"/>
+                <h:outputText style="vertical-align: middle; margin-left: .5rem"
+                              value="#{customer.country.name}"/>
+            </p:column>
+
+            <p:column headerText="Representative" filterBy="#{customer.representative.name}"
+                      sortBy="#{customer.representative.name}" filterMatchMode="startsWith">
+                <p:graphicImage name="images/avatar/#{customer.representative.image}" library="demo"
+                                width="32" style="vertical-align: middle"/>
+                <h:outputText style="vertical-align: middle; margin-left: .5rem"
+                              value="#{customer.representative.name}"/>
+            </p:column>
+
+            <p:column headerText="Status" filterBy="#{customer.status}" sortBy="#{customer.status}"
+                      filterMatchMode="exact">
+                <f:facet name="filter">
+                    <p:selectOneMenu onchange="PF('customersTable').filter()"
+                                     style="width:100%; box-sizing: border-box;">
+                        <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true"/>
+                        <f:selectItems value="#{dtMultiViewStateView.customerStatus}"/>
+                    </p:selectOneMenu>
+                </f:facet>
+                <span class="customer-badge status-#{customer.status.name().toLowerCase()}">#{customer.status}</span>
+            </p:column>
+
+            <f:facet name="paginatorTopLeft">
+                <p:commandButton value="Clear table state" action="#{dtMultiViewStateView.clearMultiViewState}"
+                                 update="@form"/>
+            </f:facet>
+        </p:dataTable>
+    </div> 
+</h:form>  
+	</cc:implementation>		
+</html>

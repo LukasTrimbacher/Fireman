@@ -1,0 +1,5 @@
+package org.primefaces.showcase.view.input;
+
+public class MySpinner {
+
+}

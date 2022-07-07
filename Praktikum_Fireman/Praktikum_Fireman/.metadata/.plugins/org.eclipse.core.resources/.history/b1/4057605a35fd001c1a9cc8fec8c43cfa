@@ -1,0 +1,40 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:swaf="http://java.sun.com/jsf/composite/composite/components/common"
+                template="/WEB-INF/template.xhtml"
+                >
+
+    <ui:define name="head">
+       
+    </ui:define>
+
+    <ui:define name="title">
+        LabledSpinner
+    </ui:define>
+
+    <ui:define name="description">
+        LabledSpinner is a spinner component
+    </ui:define>
+
+    <ui:param name="documentationLink" value="/components/card"/>
+
+    <ui:define name="implementation">
+
+        <div style="content-align:center">
+         <h:form>
+            <p:commandButton value="Modal" type="button" onclick="PF('dlg2').show();" />
+            <p:dialog header="Modal Dialog" widgetVar="dlg2" modal="true" height="250" width="500" position="center center" >
+            	<p:button lable="Close"/>
+                <swaf:labledSingleSelection  label="Single Selection"/>
+                <swaf:labledTextInput  label="Labled Text Input"/>
+                <swaf:labledDateTimePicker  label="Labled DateTime Picker"/>
+                <swaf:labledSpinner  label="Labled Spinner"/>
+            	<swaf:labledSwitch  label="Labled Switch"/>
+            </p:dialog>  
+		</h:form>  
+       </div> 
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jstl/core"
+>
+	
+	<cc:interface>
+		<cc:attribute name="label" />                             <!-- the user presented label, presented on the 'on' side -->
+		<cc:attribute name="offLabel" />   
+		<cc:attribute name="lableLeft" default="true" /> 
+		<cc:attribute name="enableLable" default="true" />        <!-- the user presented label shown at the 'off' side of the switch -->
+		<cc:attribute name="onAtLeft" default="true" />           <!-- true (default) to render the 'on' state at the left end, false to render the 'off' state on the left end -->
+		<cc:attribute name="value" />                             <!-- the binding for the value of the switch -->
+		<cc:attribute name="update" />                            <!-- the IDs (expressions) of the element to update upon changes -->
+		<cc:attribute name="disabled" default="false"/>           <!-- true if the widget shall not accept input, false (default) otherwise -->
+		<cc:attribute name="style" />                             <!-- the CSS style for the outer widget -->
+		<cc:attribute name="styleClass" />                        <!-- the CSS style class for the outer widget -->		 
+	</cc:interface>
+	
+	<cc:implementation> 
+		<p:dataTable var="product" value="#{dtBasicView.products}">
+            <p:column headerText="Code">
+                <h:outputLabel value="#{cc.attrs.label}"></h:outputLabel>
+            </p:column>
+
+            <p:column headerText="Name">
+                <h:outputText value="#{product.name}" />
+            </p:column>
+
+            <p:column headerText="Category">
+                <h:outputText value="#{product.category}" />
+            </p:column>
+
+            <p:column headerText="Quantity">
+                <h:outputText value="#{product.quantity}" />
+            </p:column>
+        </p:dataTable>
+
+			<p:selectBooleanCheckbox value="#{selectBooleanView.value1}"/>
+	</cc:implementation>
+</html>

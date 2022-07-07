@@ -1,0 +1,39 @@
+
+package fireman.csi.faces.viewmodel;
+
+public class Cable {
+	private String mManufacture;
+	private int mBarcode;
+	private String mName;
+
+	public Cable(){
+
+	}
+
+	public Cable(String manufacture, int barcode, String name){
+		mName = name;
+		mBarcode = barcode;
+		mManufacture = manufacture;
+	}
+
+	public String getManufacturer() {
+		return mManufacturer;
+	}
+	public void setManufacturer(String manufacturer) {
+		mManufacturer = manufacturer;
+	}
+	public int getBarcode() {
+		return mBarcode;
+	}
+	public void setBarcode(int barcode) {
+		mBarcode = barcode;
+	}
+	public String getName() {
+		return mName;
+	}
+	public void setName(String name) {
+		mName = name;
+	}
+	
+	
+}

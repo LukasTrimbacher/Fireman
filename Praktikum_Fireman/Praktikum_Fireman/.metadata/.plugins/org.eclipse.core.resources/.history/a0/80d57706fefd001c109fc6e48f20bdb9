@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+>
+	
+	<cc:interface>
+		<cc:attribute name="label" />
+		<cc:attribute name="timeEnabled" />
+		<cc:attribute name="dateEnabled" />                             <!-- the user presented label, presented on the 'on' side -->
+		<cc:attribute name="offLabel" />                          <!-- the user presented label shown at the 'off' side of the switch -->
+		<cc:attribute name="onAtLeft" default="true" />           <!-- true (default) to render the 'on' state at the left end, false to render the 'off' state on the left end -->
+		<cc:attribute name="value" />                             <!-- the binding for the value of the switch -->
+		<cc:attribute name="update" />                            <!-- the IDs (expressions) of the element to update upon changes -->
+		<cc:attribute name="disabled" default="false"/>           <!-- true if the widget shall not accept input, false (default) otherwise -->
+		<cc:attribute name="style" />                             <!-- the CSS style for the outer widget -->
+		<cc:attribute name="styleClass" />                        <!-- the CSS style class for the outer widget -->		            <!-- the listener that is notified about state changes -->
+	</cc:interface>
+	
+	<cc:implementation>
+		 <p:dataTable var="customer" value="#{dtPaginatorView.customers}" rows="10"
+                     paginator="true"
+                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                     currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                     rowsPerPageTemplate="5,10,{ShowAll|'All'}">
+
+            <p:column headerText="Name">
+                <h:outputText value="#{cable.name}" />
+            </p:column>
+
+            <p:column headerText="Manufacture">
+                <h:outputText value="#{cable.manufacture}" />
+            </p:column>
+
+            <p:column headerText="Barcode">
+                <h:outputText value="#{cable.barcode}" />
+            </p:column>
+
+            <p:column headerText="Representative">
+                <h:outputText value="#{customer.representative.name}" />
+            </p:column>
+
+            <f:facet name="paginatorTopLeft">
+                <p:commandButton type="button" icon="pi pi-refresh"/>
+            </f:facet>
+
+            <f:facet name="paginatorBottomRight">
+                <p:commandButton type="button" icon="pi pi-cloud-upload"/>
+            </f:facet>
+        </p:dataTable>
+	</cc:implementation>		
+</html>
+        
+   

@@ -1,0 +1,34 @@
+package fireman.csi.faces.viewmodel;
+
+import java.io.Serializable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
+
+@Named
+@RequestScoped
+public class LabledSpinnerVm implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private boolean mIsDecimal = false;
+    private double mStepfactor = 2;
+
+    public boolean isDecimal() {
+        Logger.getLogger(LabledSpinnerVm.class.getName()).log(Level.INFO, "Getter", mIsDecimal);
+        return mIsDecimal;
+    }
+
+    public void setDecimal(boolean isDecimal) {
+        mIsDecimal = isDecimal;
+        setStepfactor(0.1);
+        Logger.getLogger(LabledSpinnerVm.class.getName()).log(Level.INFO, "Setter", mIsDecimal);
+    }
+
+    public double getStepfactor() {
+        return mStepfactor;
+    }
+
+    public void setStepfactor(double stepfactor) {
+        mStepfactor = stepfactor;
+    }
+}

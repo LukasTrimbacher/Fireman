@@ -1,0 +1,31 @@
+package fireman.csi.faces.viewmodel;
+
+import java.io.Serializable;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+
+import org.primefaces.showcase.domain.Customer;
+
+public class PaginatorView implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+	private List<Customer> customers;
+
+    @Inject
+    private CustomerService service;
+
+    @PostConstruct
+    public void init() {
+        customers = service.getCustomers(50);
+    }
+
+    public List<Customer> getCustomers() {
+        return customers;
+    }
+
+    public void setService(CustomerService service) {
+        this.service = service;
+    }
+}

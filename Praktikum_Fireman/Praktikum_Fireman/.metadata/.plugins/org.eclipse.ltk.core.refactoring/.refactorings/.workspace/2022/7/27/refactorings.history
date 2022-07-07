@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;mySpinner&apos;" deleteContents="false" description="Delete resource &apos;mySpinner&apos;" element1="/mySpinner" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1656944262501"/>&#x0A;<refactoring comment="Delete resource &apos;org.primefaces.showcase.fireman&apos;" deleteContents="false" description="Delete resource &apos;org.primefaces.showcase.fireman&apos;" element1="/org.primefaces.showcase.fireman" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1656949414826"/>
+</session>

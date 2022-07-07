@@ -1,0 +1,5 @@
+package fireman.csi.faces.viewmodel;
+
+public class MultiViewStateView {
+
+}

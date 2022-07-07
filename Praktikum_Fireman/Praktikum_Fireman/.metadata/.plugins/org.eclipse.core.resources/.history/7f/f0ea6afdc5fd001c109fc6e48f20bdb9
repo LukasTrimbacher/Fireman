@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:swaf="http://java.sun.com/jsf/composite/composite/components/common"
+>
+	
+	<cc:interface>
+		<cc:attribute name="label" />
+		<cc:attribute name="timeEnabled" />
+		<cc:attribute name="dateEnabled" />                             <!-- the user presented label, presented on the 'on' side -->
+		<cc:attribute name="offLabel" />                          <!-- the user presented label shown at the 'off' side of the switch -->
+		<cc:attribute name="onAtLeft" default="true" />           <!-- true (default) to render the 'on' state at the left end, false to render the 'off' state on the left end -->
+		<cc:attribute name="value" />                             <!-- the binding for the value of the switch -->
+		<cc:attribute name="update" />                            <!-- the IDs (expressions) of the element to update upon changes -->
+		<cc:attribute name="disabled" default="false"/>           <!-- true if the widget shall not accept input, false (default) otherwise -->
+		<cc:attribute name="style" />                             <!-- the CSS style for the outer widget -->
+		<cc:attribute name="styleClass" />                        <!-- the CSS style class for the outer widget -->		            <!-- the listener that is notified about state changes -->
+	</cc:interface>
+	
+	<cc:implementation>
+		<h:form>
+            <p:dialog widgetVar="dlg1" header="Title" style="align-items: center;" modal="true" height="auto" width="auto" >
+            	<p:button value="Close" styleClass="ui-button-danger"/> 
+                <swaf:labledSingleSelectionVm  label="Single Selection"/>
+                <swaf:labledTextInputVm  label="Labled Text Input"/>
+                <swaf:labledDateTimePickerVm  label="Labled DateTime Picker"/>
+                <swaf:labledSpinner  label="Labled Spinner"/>
+            	<swaf:labledSwitch  label="Labled Switch"/>
+            </p:dialog>  
+		</h:form>  
+	</cc:implementation>		
+</html>

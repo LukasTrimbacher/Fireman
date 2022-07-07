@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jstl/core"
+>
+	
+	<cc:interface>
+		<cc:attribute name="label" />                             <!-- the user presented label, presented on the 'on' side -->
+		<cc:attribute name="offLabel" />   
+		<cc:attribute name="lableLeft" default="true" /> 
+		<cc:attribute name="enableLable" default="true" />        <!-- the user presented label shown at the 'off' side of the switch -->
+		<cc:attribute name="onAtLeft" default="true" />           <!-- true (default) to render the 'on' state at the left end, false to render the 'off' state on the left end -->
+		<cc:attribute name="value" />                             <!-- the binding for the value of the switch -->
+		<cc:attribute name="update" />                            <!-- the IDs (expressions) of the element to update upon changes -->
+		<cc:attribute name="disabled" default="false"/>           <!-- true if the widget shall not accept input, false (default) otherwise -->
+		<cc:attribute name="style" />                             <!-- the CSS style for the outer widget -->
+		<cc:attribute name="styleClass" />                        <!-- the CSS style class for the outer widget -->		 
+	</cc:interface>
+	
+	<cc:implementation>
+    		<h:form>
+    			<div >
+    				<h:panelGrid columns="2" cellpadding ="5">
+				
+					
+							<h:outputLabel value="#{cc.attrs.label}"/>
+						
+						<p:column>
+							<p:inputText/>
+						</p:column>
+	
+    				<c:choose>
+					 <p:dataTable var="product" value="#{dtBasicView.products}">
+    					<c:when test="#{cc.attrs.enableLable == true}">
+    						<c:choose>
+    							<c:when test="#{cc.attrs.lableLeft == true}">
+								<p:column>	
+        							<h:outputLabel rendered="#{cc.attrs.enableLable}" for="@next" value="#{cc.attrs.label}" />
+								</p:column>	
+    								<p:spinner min="0" max="100" value="0" stepFactor="#{labledSpinnerVm.stepfactor}" suffix="°C "/>
+        						
+        						</c:when>
+        						<c:otherwise>
+    								<p:spinner min="0" max="100" value="0" stepFactor="#{labledSpinnerVm.stepfactor}" suffix="°C "/>
+    								<h:outputLabel rendered="#{cc.attrs.enableLable}" for="@next" value="#{cc.attrs.label}" />
+        						</c:otherwise>
+    						</c:choose>
+    					</c:when>
+   						<c:otherwise>
+        					<p:spinner min="0" max="100" value="0" stepFactor="#{labledSpinnerVm.stepfactor}" suffix="°C "/>
+    					</c:otherwise>
+					</c:choose>
+					</p:dataTable>	
+    			</h:panelGrid>
+    			</div>
+    		</h:form>
+	</cc:implementation>
+</html>

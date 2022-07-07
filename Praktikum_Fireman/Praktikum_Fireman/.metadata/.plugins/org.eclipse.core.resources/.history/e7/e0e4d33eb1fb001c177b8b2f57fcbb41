@@ -1,0 +1,9 @@
+package org.primefaces.showcase.fireman;
+
+public class MySpinner {
+	public boolean decimal;
+	
+	public void setDecimal() {
+		
+	}
+}

@@ -1,0 +1,43 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:swaf="http://java.sun.com/jsf/composite/composite/components/common"
+                template="/WEB-INF/template.xhtml"
+                >
+
+    <ui:define name="head">
+       
+    </ui:define>
+
+    <ui:define name="title">
+        Labled Spinner
+    </ui:define>
+
+    <ui:define name="description">
+        LabledSpinner is a spinner component
+    </ui:define>
+
+    <ui:param name="documentationLink" value="/components/card"/>
+
+    <ui:define name="implementation">
+    <!-- <div>
+    	<h3> Select if decimals are on</h3>
+    		<h:form>
+    		<p:toggleSwitch id="decimals" value="#{labledSpinnerVm.decimal}"/>
+    			<div>
+    				<p:spinner min="0" value="0" stepFactor="#{labledSpinnerVm.stepfactor}" suffix="°C "/>
+    			</div>
+    		</h:form>
+    	</div>
+    	<div>
+    		<swaf:toggleSwitch id="trEnabled"
+                    label="#{Test}"
+                    value="#{True}"/>
+    	</div>
+    	-->
+    	
+    	<swaf:labledSpinner/>
+    </ui:define>
+</ui:composition>

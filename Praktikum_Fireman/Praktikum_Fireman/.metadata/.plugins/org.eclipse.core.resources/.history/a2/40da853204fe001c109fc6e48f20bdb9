@@ -1,0 +1,31 @@
+package fireman.csi.faces.viewmodel;
+
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
+
+@Named("dataTableView")
+@ViewScoped
+public class GenericDataTableVm {
+    private List<Cable> mCables;
+
+    @Inject
+    private GenericDataTableVm mService;
+
+    @PostConstruct
+    public void init() {
+        mCables = mService.getCables();
+    }
+
+    public List<Cable> getCables() {
+        return mCables;
+    }
+
+    public void setService(GenericDataTableVm service) {
+        mService = service;
+    }
+}
+
